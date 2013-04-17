@@ -20,7 +20,6 @@ void __serialEvent()
 {
     disableTimer();         // disable timer irq
     while (Serial.available()) {
-
         char inChar = (char)Serial.read();
         serialDta[serialDtaCnt++]= inChar;
         if (inChar == '\n') {
@@ -48,7 +47,6 @@ int strdo(char *str)
 
     return sum;
 }
-
 
 //const unsigned char __numAbc[10][6] PROGMEM =
 char __numAbc[10][5] =
@@ -82,7 +80,6 @@ bool checkMsgCall(unsigned char stateNow)
         serialGot    = false;
         serialDtaCnt = 0;
         UI.msgReadCodeMax = strdo(serialDta);
-        //UI.msgReadNewMsg = 1; // get new msg
         return true;
     }
 
