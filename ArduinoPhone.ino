@@ -1,17 +1,14 @@
+// ArduinoPhone Code
 #include <SeeedTouchScreen.h>
-#include "UI_ArduinoPhone.h"
-#include <stdint.h>
-#include <MsTimer2.h>
 #include <SoftwareSerial.h>
-#include "phone.h"
-#include <TimerOne.h>
-#include <Wire.h>
-#include "UI_ArduinoPhone_dfs.h"
-
 #include <TFTv2.h>
 #include <SPI.h>
+#include <TimerOne.h>
+#include <Wire.h>
 
-
+#include "phone.h"
+#include "UI_ArduinoPhone_dfs.h"
+#include "UI_ArduinoPhone.h"
 
 // serial data
 char serialDta[100];
@@ -465,12 +462,12 @@ void stateMsg()
 
     if(!UI.isTouch())return;
 
+    unsigned char msgState = 1;
+            
     while(1)
     {
         long time1 = millis();
-
-        unsigned char msgState = UI.getMsgInputState();
-        unsigned char msgState = UI.getMsgInputState();
+        msgState = UI.getMsgInputState();
 
         if(msgState == 1)
         {
@@ -490,6 +487,7 @@ void stateMsg()
         }
 
         // input txt
+        
         if(button == TOUCH_DRAG_LEFT)
         {
             UI.state_buf = ST_MSG;

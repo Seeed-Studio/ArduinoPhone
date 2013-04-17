@@ -729,6 +729,7 @@ unsigned char UI_ArduinoPhone::getMsgInputState()
     delay(10);
     if(p.y < (MSG_DIABOX_NUM_HIGH+MSG_DIABOX_NUM_Y))return 1;
     else if(p.y < (MSG_DIABOX_TXT_Y+MSG_DIABOX_TXT_HIGH)) return 2;
+    else return 0;
     
 }
 
