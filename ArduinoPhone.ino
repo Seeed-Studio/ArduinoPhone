@@ -1,7 +1,7 @@
 // ArduinoPhone Code
 #include <SeeedTouchScreen.h>
 #include <SoftwareSerial.h>
-#include <TFTv2.h>
+#include <TFT.h>
 #include <SPI.h>
 #include <TimerOne.h>
 #include <Wire.h>
@@ -127,12 +127,8 @@ void stateMachine()
             if(serialGot)
             {
                 disableTimer();
-#if I2CUART
-                UI.I2C_Uart(serialDta);
-#endif
                 if(checkMsgCall(ST_TIME)){ enableTimer();break;}
                 enableTimer();
-
             }
 
             if(UI.isTouch())// get touch
@@ -179,10 +175,8 @@ void stateMachine()
                 {
                     stateCall();
 
-                    if(serialGot){
-#if I2CUART
-                        UI.I2C_Uart(serialDta);
-#endif
+                    if(serialGot)
+                    {
                         if(checkMsgCall(ST_CALL))break;
                     }
                     if(UI.state != ST_CALL)break;
@@ -190,13 +184,9 @@ void stateMachine()
             }
             if(serialGot){
                 disableTimer();
-#if I2CUART
-                UI.I2C_Uart(serialDta);
-#endif
                 if(checkMsgCall(ST_CALL)){enableTimer();break;}
                 enableTimer();
             }
-
             // check if call in or msg
 
             if(UI.state != ST_CALL)break;
@@ -264,9 +254,6 @@ void stateMachine()
             if(serialGot)
             {
                 disableTimer();
-#if I2CUART
-                UI.I2C_Uart(serialDta);
-#endif
                 if(Phone.isCallOver(serialDta))
                 {
                     UI.state     = UI.state_buf;
@@ -330,9 +317,6 @@ void stateMachine()
                     if(serialGot)
                     {
                         disableTimer();
-#if I2CUART
-                        UI.I2C_Uart(serialDta);
-#endif
                         if(checkMsgCall(ST_MSG)){enableTimer();break;}
                         enableTimer();
                     }
@@ -341,9 +325,6 @@ void stateMachine()
             if(serialGot)
             {
                 disableTimer();
-#if I2CUART
-                UI.I2C_Uart(serialDta);
-#endif
                 if(checkMsgCall(ST_MSG)){enableTimer();break;}
                 enableTimer();
             }
@@ -482,7 +463,7 @@ void stateMsg()
         {
             button = UI.getTouch(&button);
         }
-
+        
         // input txt
         
         if(button == TOUCH_DRAG_LEFT)

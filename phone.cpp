@@ -13,7 +13,7 @@ SoftwareSerial mySerial(7, 8);
 void phone::init()
 {
 #if PHONESOFTSERIAL
-    mySerial.begin(19200);               // the GPRS baud rate   
+    mySerial.begin(19200);               // the Serial1 baud rate   
 #else
     Serial.begin(19200);
 #endif

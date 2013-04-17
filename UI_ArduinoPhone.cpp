@@ -6,7 +6,7 @@
 #include <Arduino.h>
 #include "UI_ArduinoPhone_dfs.h"
 
-#include <TFTv2.h>
+#include <TFT.h>
 #include <SPI.h>
 
 TouchScreen ts = TouchScreen(XP, YP, XM, YM);
@@ -115,7 +115,8 @@ void UI_ArduinoPhone::drawMsgDialogBox()
 void UI_ArduinoPhone::init()
 {
 
-    Tft.TFTinit();
+   // Tft.TFTinit();
+   Tft.init();
   //  TFT_BL_ON;
 
 #if !MSGTEST
