@@ -1,0 +1,1 @@
+you should add those library to you Ardu ....arduino-1.0.1-windows\arduino-1.0.1\libraries
