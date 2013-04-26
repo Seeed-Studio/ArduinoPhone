@@ -134,10 +134,25 @@
 
 
 //touch screen
-#define YP 16   // must be an analog pin, use "An" notation!
-#define XM 15   // must be an analog pin, use "An" notation!
+
+#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) // mega
+#define YP A2   // must be an analog pin, use "An" notation!
+#define XM A1   // must be an analog pin, use "An" notation!
+#define YM 54   // can be a digital pin, this is A0
+#define XP 57   // can be a digital pin, this is A3 
+
+#elif defined(__AVR_ATmega32U4__) // leonardo
+#define YP A2   // must be an analog pin, use "An" notation!
+#define XM A1   // must be an analog pin, use "An" notation!
+#define YM 18   // can be a digital pin, this is A0
+#define XP 21   // can be a digital pin, this is A3 
+
+#else //168, 328, something else
+#define YP A2   // must be an analog pin, use "An" notation!
+#define XM A1   // must be an analog pin, use "An" notation!
 #define YM 14   // can be a digital pin, this is A0
-#define XP 17   // can be a digital pin, this is A3
+#define XP 17   // can be a digital pin, this is A3 
+#endif
 
 #define TS_MINX 116*2
 #define TS_MAXX 890*2
