@@ -22,7 +22,7 @@ We had an instructable about how to make an Arduino Phone, for more information,
 <br>
 ----
 
-This software is written by <your name @your_email.com> for seeed studio<br>
+This software is written by loovee ([luweicong@seeedstudio.com](luweicong@seeedstudio.com)) for seeed studio<br>
 and is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check License.txt for more information.<br>
 
 Contributing to this software is warmly welcomed. You can do this basically by<br>
