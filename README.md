@@ -17,7 +17,13 @@ This Sketchbook includes a Phone demo and some libraries that included.
 We had an instructable about how to make an Arduino Phone, for more information, please refer to [Arduino Phone Instructable](http://www.instructables.com/id/ArduinoPhone/)
 
 
+### TFT Shield version
 
+The default TFT version is TFT Touch Shield V2, if you want to work with TFT v1, there's few to be modify in the code.
+
+1. Line 34, 35 of Demo.ino
+2. Line 38, 39 of UI_ArduinoPhone.cpp
+3. Line 32 of UI_ArduinoPhone_dfs.h
 
 <br>
 ----

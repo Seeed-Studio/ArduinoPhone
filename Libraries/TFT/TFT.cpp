@@ -644,10 +644,4 @@ void TFT::fillScreen(void)
 }
 
 
-
-
-
-
 TFT Tft=TFT();
-
-
